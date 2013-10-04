@@ -28,12 +28,12 @@ end
 
 def add_animal
   new_animal = Animal.new
-  $animal_hash[new_animal] = new_animal
+  $animal_hash[new_animal.name] = new_animal
 end
 
 def add_client
   new_client = Client.new
-  $client_hash[client.name] = new_client
+  $client_hash[new_client.name] = new_client
 end
 
 def adopt_animal
