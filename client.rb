@@ -1,7 +1,7 @@
 # require 'pry'
 
 class Client
-  attr_accessor :name, :num_children, :age, :num_pets
+  attr_accessor :name, :num_children, :age, :num_pets, :pets
 
   def initialize
     puts "Firstly, please tell me your name"
@@ -22,6 +22,7 @@ class Client
         else
           @num_pets = 0
         end
+    pets = []
 end
 end
 # binding.pry
