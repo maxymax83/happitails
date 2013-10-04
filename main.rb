@@ -10,27 +10,28 @@ def menu
     3 : Add an animal to the shelter
     4 : Become a potential animal parent
     5 : Adopt an animal
-    6 : Add an animal to our shelter ready for adoption  "
-  menu_response = gets.chomp
+    6 : Add an animal to our shelter ready for adoption
+    Q : Quit"
+  menu_response = gets.chomp.to_s.downcase
 end
 
-$animal_array = []
-$clients_hash = {}
+$animal_hash = {}
+$client_hash = {}
 
 def view_animals
-  puts animal_array
+  puts $animal_hash
 end
 
 def view_clients
-  puts client_array
+  puts $client_hash
 end
 
 def add_animal
   new_animal = Animal.new
-  $animal_array << new_animal
+  $animal_hash[new_animal] = new_animal
 end
 
-def add_client(client_hash)
+def add_client
   new_client = Client.new
   $client_hash[client.name] = new_client
 end
@@ -41,43 +42,67 @@ def adopt_animal
     if already_client == 'y'
       puts "Here is our list of clients, which one are you?"
       puts client_hash
-      @adopting_client = gets.chomp.downcase
+      name = gets.chomp.downcase
+      @adopting_client = $client_hash[name]
     else
         add_client
     end
   def pet_choice
     puts animal_array
     puts "Please select from the choices above"
-    @pet_to_adopt = gets.chomp.downcase
+    pet_name = gets.chomp.downcase
+    @pet_to_adopt = $animal_hash[pet_name]
   end
-end
-
-def adoption
-  animal_array.delete(@pet_to_adopt)
-  @adopting_client.pets << @pet_to_adopt
+  def adoption
+    animal_array.delete(@pet_to_adopt)
+    @adopting_client.pets << @pet_to_adopt
+  end
 end
 
 def add_adoptee
   new_animal = Animal.new
-  animal_array << new_animal
+  $animal_hash[new_animal] = new_animal
 end
 
-
-case menu_response
-  when 1
-    view_animals
-  when 2
-    view_clients
-  when 3
-    add_animal()
-  when 4
-    add_client
-  when 5
-    adopt_animal
-  when 6
-    add_adoptee
+menu_response = menu
+while menu_response != 'q'
+    if menu_response == '1'
+      view_animals
+      puts menu
+    elsif menu_response == '2'
+      view_clients
+      puts menu
+    elsif menu_response == '3'
+      add_animal
+      puts menu
+    elsif menu_response == '4'
+      add_client
+      puts menu
+    elsif menu_response == '5'
+      adopt_animal
+      puts menu
+    else
+      add_adoptee
+      puts menu
+    end
+  menu_response = gets.chomp.to_s.downcase
 end
 
+# while menu_response != 'q'
+#   case menu_response
+#     when '1'
+#       view_animals
+#     when '2'
+#       view_clients
+#     when '3'
+#       add_animal
+#     when '4'
+#       add_client
+#     when '5'
+#       adopt_animal
+#     when '6'
+#       add_adoptee
+#   end
 
 
 
