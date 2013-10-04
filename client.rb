@@ -7,7 +7,7 @@ class Client
     puts "Firstly, please tell me your name"
       @name = gets.chomp.capitalize
     puts "Thanks #{@name}! Do you have any children Y/N?"
-        if gets.chomp == "Y"
+        if gets.chomp.downcase == "y"
           puts "How lovely, how many of the little devils do you have?"
           @num_children = gets.chomp.to_i
         else
@@ -16,7 +16,7 @@ class Client
     puts "No problem, how old are you #{@name}?"
       @age = gets.chomp.to_i
     puts "So young! Do you already have any pets Y/N?"
-        if gets.chomp == "Y"
+        if gets.chomp.downcase == "y"
           puts "How many do you have?"
           @num_pets = gets.chomp.to_i
         else
