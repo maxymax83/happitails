@@ -1,21 +1,27 @@
+require 'pry'
+
 class Client
   attr_accessor :name, :num_children, :age, :num_pets
 
   def initialize
     puts "Firstly, please tell me your name"
-    @name = gets.chomp.capitalize
-    puts "Thanks #{name}! Do you have any children? If so, how many?"
-    @num_children.to_i
-    puts "And how old are you #{name}?"
-    @age = gets.chomp.to_i
-    puts "So young! Do you already have any pets? If so, how many?"
-    @num_pets = gets.chomp.to_i
-  end
-
+      @name = gets.chomp.capitalize
+    puts "Thanks #{@name}! Do you have any children Y/N?"
+        if gets.chomp == "Y"
+          puts "How lovely, how many of the little devils do you have?"
+          @num_children = gets.chomp.to_i
+        else
+          @num_children = 0
+        end
+    puts "No problem, how old are you #{@name}?"
+      @age = gets.chomp.to_i
+    puts "So young! Do you already have any pets Y/N?"
+        if gets.chomp == "Y"
+          puts "How many do you have?"
+          @num_pets = gets.chomp.to_i
+        else
+          @num_pets = 0
+        end
 end
-
-
-A client should have a name.
-A client should have a number of children.
-A client should have an age.
-A client should have a number of pets.
+end
+binding.pry
