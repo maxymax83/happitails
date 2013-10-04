@@ -1,6 +1,3 @@
-require_relative 'animal'
-require_relative 'client'
-require 'pry'
 
 class Shelter
   attr_accessor :animals, :clients
