@@ -46,8 +46,8 @@ def adopt_animal
         add_client
     end
   def pet_choice
-    list displayed animal_array
-    puts "please select"
+    puts animal_array
+    puts "Please select from the choices above"
     @pet_to_adopt = gets.chomp.downcase
   end
 end
