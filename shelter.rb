@@ -8,11 +8,19 @@ class Shelter
   end
 
   def add_animal(animal)
-    @animals << animal
+    if (animal.is_a?Animal)
+      @animals << animal
+    else
+      puts "Sorry, #{animal} is not an animal"
+    end
   end
 
   def add_client(client)
-    @clients << client
+    if (client.is_a?Client)
+      @clients << client
+    else
+      puts "Sorry, #{client} is not a client"
+    end
   end
 
 end
