@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 class Client
   attr_accessor :name, :num_children, :age, :num_pets
@@ -24,4 +24,4 @@ class Client
         end
 end
 end
-binding.pry
+# binding.pry

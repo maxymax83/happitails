@@ -17,4 +17,4 @@ class Shelter
 
 end
 
-binding.pry
+# binding.pry
