@@ -3,8 +3,8 @@ class Shelter
   attr_accessor :animals, :clients
 
   def initialize
-    @animals = []
-    @clients = []
+    @animals_array = []
+    @clients_hash = {}
   end
 
   def add_animal(animal)
@@ -22,6 +22,8 @@ class Shelter
       puts "Sorry, #{client} is not a client"
     end
   end
+
+
 
 end
 

@@ -14,8 +14,8 @@ def menu
   menu_response = gets.chomp
 end
 
-animal_array = []
-client_hash = {}
+$animal_array = []
+$clients_hash = {}
 
 def view_animals
   puts animal_array
@@ -27,12 +27,12 @@ end
 
 def add_animal
   new_animal = Animal.new
-  animal_array << new_animal
+  $animal_array << new_animal
 end
 
-def add_client
+def add_client(client_hash)
   new_client = Client.new
-  client_hash[client.name] = new_client
+  $client_hash[client.name] = new_client
 end
 
 def adopt_animal
@@ -69,7 +69,7 @@ case menu_response
   when 2
     view_clients
   when 3
-    add_animal
+    add_animal()
   when 4
     add_client
   when 5
