@@ -42,8 +42,8 @@ Phase 4
 At start, the user is prompted with a menu of options:
 display all animals
 display all clients
-create an animal
-create an client
+          create an animal
+          create an client
 facilitate client adopts an animal
 facilitate client puts an animal up for adoption
 After selecting from the menu the task the user is prompted through the entire process
