@@ -22,7 +22,12 @@ class Client
         else
           @num_pets = 0
         end
-    pets = []
+    @pets = []
 end
+
+
 end
+
+
+
 # binding.pry

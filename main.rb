@@ -36,27 +36,29 @@ def add_client
   $client_hash[new_client.name] = new_client
 end
 
-def adopt_animal
+def are_you_a_client
   puts "are you already a client? (Y/N)"
   already_client = gets.chomp.downcase
     if already_client == 'y'
       puts "Here is our list of clients, which one are you?"
-      puts client_hash
+      puts $client_hash.keys
       name = gets.chomp.downcase
       @adopting_client = $client_hash[name]
     else
         add_client
     end
-  def pet_choice
-    puts animal_array
-    puts "Please select from the choices above"
-    pet_name = gets.chomp.downcase
-    @pet_to_adopt = $animal_hash[pet_name]
-  end
-  def adoption
-    animal_array.delete(@pet_to_adopt)
-    @adopting_client.pets << @pet_to_adopt
-  end
+end
+
+def pet_choice
+  puts $animal_hash
+  puts "Please select from the choices above"
+  pet_name = gets.chomp.downcase
+  @pet_to_adopt = $animal_hash[pet_name]
+end
+
+def adoption
+  $animal_hash.delete(@pet_to_adopt)
+  @adopting_client.pets << @pet_to_adopt
 end
 
 def add_adoptee
@@ -79,7 +81,9 @@ while menu_response != 'q'
       add_client
       puts menu
     elsif menu_response == '5'
-      adopt_animal
+      are_you_a_client
+      pet_choice
+      adoption
       puts menu
     else
       add_adoptee
@@ -104,6 +108,19 @@ end
 #       add_adoptee
 #   end
 
+helen = Client.new
+helen.name = "Helen"
+helen.num_children = 0
+helen.age = 44
+helen.num_pets = 0
+helen.pets = :bolt
+
+bolt = Animal.new
+bolt.name = "Bolt"
+bolt.age = 7
+bolt.gender = 'female'
+bolt.species = 'rabbit'
+bolt.toys = ['ball', 'stick']
 
 
 binding.pry

@@ -31,4 +31,5 @@ attr_accessor :name, :age, :gender, :species, :toys
 
 end
 
+
 # binding.pry
